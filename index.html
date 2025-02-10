@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="orderApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Management System</title>
+
+  <!-- Include Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <!-- Include AngularJS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+  <!-- Include UI Router -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.1.1/angular-ui-router.js"></script>
+
+  <!-- Include Angular Messages -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-messages/1.8.3/angular-messages.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
+
+  <!-- Include UI Bootstrap -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.6/ui-bootstrap-tpls.min.js"></script>
+
+  <!-- Include your app and modules -->
+  <script src="src/app.module.js"></script>
+  <script src="src/app.config.js"></script>
+
+  <!-- Order related scripts -->
+  <script src="src/orders/order.module.js"></script>
+  <script src="src/orders/order.service.js"></script>
+  <script src="src/orders/order.controller.js"></script>
+  <script src="src/orders/order.directive.js"></script>
+  <script src="src/component/header/header.component.js"></script>
+  <script src="src/component/footer/footer.component.js"></script>
+
+  <!-- Include the create, update, view order controllers -->
+  <script src="src/orders/createUpdateOrder/createUpdateOrder.controller.js"></script>
+  <script src="src/orders/viewOrder/viewOrder.controller.js"></script>
+</head>
+<style>
+  .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1030;
+  }
+
+  body {
+    padding-top: 80px;
+  }
+
+  body, html {
+    height: 100%;
+    margin: 0;
+  }
+
+  .footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #343a40;
+  }
+
+  .mt-auto {
+    margin-top: auto;
+  }
+
+</style>
+<body>
+  <app-header></app-header>
+  <div class="container my-4">
+    <ui-view></ui-view>
+  </div>
+  <app-footer></app-footer>
+</body>
+</html>

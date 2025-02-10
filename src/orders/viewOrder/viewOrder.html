@@ -1,0 +1,49 @@
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Order Details</h2>
+
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header bg-primary text-white">
+          <h3 class="card-title">Order #{{ order.id }}</h3>
+        </div>
+
+        <div class="card-body">
+          <div class="row mb-3">
+            <div class="col-md-4"><strong>Wine Name:</strong></div>
+            <div class="col-md-8">{{ order.wineName }}</div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-md-4"><strong>Quantity:</strong></div>
+            <div class="col-md-8">{{ order.quantity }}</div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-md-4"><strong>Price:</strong></div>
+            <div class="col-md-8">${{ order.price | number:2 }}</div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-md-4"><strong>Customer:</strong></div>
+            <div class="col-md-8">{{ order.customer }}</div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-md-4"><strong>Order Date:</strong></div>
+            <div class="col-md-8">{{ order.orderDate | date: 'shortDate' }}</div>
+          </div>
+        </div>
+
+        <div class="card-footer text-right">
+          <a ui-sref="update({orderId: order.id})" class="btn btn-warning btn-sm mr-2">
+            <i class="glyphicon glyphicon-pencil"></i> Edit Order
+          </a>
+          <button class="btn btn-danger btn-sm" ng-click="deleteOrder(order.id)">
+            <i class="glyphicon glyphicon-trash"></i> Delete Order
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

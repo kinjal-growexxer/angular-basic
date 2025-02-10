@@ -1,0 +1,46 @@
+<div class="container">
+  <h2>Wine Orders</h2>
+
+  <a ui-sref="create" class="btn btn-primary mb-3">Create New Order</a>
+
+  <div ng-if="orders.length === 0" class="alert alert-warning">
+    No orders found.
+  </div>
+
+  <table class="table table-striped" ng-if="orders.length > 0">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Wine Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Customer</th>
+        <th>Order Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="order in orders">
+        <td>{{ order.id }}</td>
+        <td>{{ order.wineName }}</td>
+        <td>{{ order.quantity }}</td>
+        <td>${{ order.price | number:2 }}</td>
+        <td>{{ order.customer }}</td>
+        <td>{{ order.orderDate }}</td>
+        <td>
+          <a ui-sref="view({orderId: order.id})" class="btn btn-info btn-sm" title="View Order">
+            <i class="glyphicon glyphicon-eye-open"></i>
+          </a>
+
+          <a ui-sref="update({orderId: order.id})" class="btn btn-warning btn-sm" title="Edit Order">
+            <i class="glyphicon glyphicon-pencil"></i>
+          </a>
+
+          <button class="btn btn-danger btn-sm" ng-click="deleteOrder(order.id)" title="Delete Order">
+            <i class="glyphicon glyphicon-trash"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
