@@ -3,11 +3,12 @@ angular.module('orderApp.orders')
     return {
       restrict: 'A',
       require: 'ngModel',
-      link: function (ngModel) {
-        ngModel.$validators.invalidDate = function (viewValue) {
+      link: function (scope, element, attrs, ngModel) {
+        ngModel.$validators.invalidDate = function (modelValue, viewValue) {
           const inputDate = moment(viewValue, 'DD-MM-YYYY');
           const today = moment().startOf('day');
 
+          // Check if the input date is in the past or a weekend
           const isWeekend = inputDate.day() === 0 || inputDate.day() === 6; // 0 = Sunday, 6 = Saturday
           const isPastDate = inputDate.isBefore(today);
 
